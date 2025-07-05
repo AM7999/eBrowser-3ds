@@ -1,0 +1,7 @@
+.vscode/*
+.idea/*
+_3ds/*
+*.3dsx
+*.elf
+.smdh
+compile_commands.json
