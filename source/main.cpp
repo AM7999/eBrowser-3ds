@@ -25,6 +25,10 @@ const int numOptions = sizeof(optionsMenu) / sizeof(optionsMenu[0]);
 
 void failExit(const char *fmt, ...);
 
+void postView() {
+	
+}
+
 void socShutdown() {
 	cout << "waiting for socExit..." << endl;
 	socExit();
@@ -146,10 +150,10 @@ int main() {
 			//TODO - implement this
 		}
 		if(kDown & KEY_A && selected == 1) {
-			json PostsOBJ{json::parse(readFile("/3ds/eBrowser/cache/posts.json"))};
-			string URL{PostsOBJ["posts"][0]["file"][0]};
-			cout << URL << endl;
-			sleep(100);		
+			string file = readFile("/3ds/eBrowser/cache/posts.json");
+			json jsonFile = json::parse(file);
+
+			cout << jsonFile["posts"][0] << endl;
 		}
 
 		if (kDown & KEY_START)
